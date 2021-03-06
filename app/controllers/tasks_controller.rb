@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :require_user_logged_in
   
   def index
-    @tasks = current_user.tasks.all
+    @tasks = current_user.tasks.select('id', 'content', "status")
   end                 
   
   def show
